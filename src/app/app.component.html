@@ -1,0 +1,31 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>NgClock</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card>
+  <div class="example-container">
+    <mat-form-field>
+      <input type="text" matInput [(ngModel)]="startTime" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" placeholder="Start time:" />
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput [(ngModel)]="endTime"  pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" placeholder="End time:" />
+    </mat-form-field>
+  </div>
+  <br>
+
+  <button color="primary" mat-raised-button (click)="showAnswer()">Answer Me</button>
+  <mat-spinner diameter="50" strokeWidth="5" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+  <br/>
+  <div *ngIf="answer">
+    <h3>Answer: The bell will toll {{ finalNumber }} times</h3>
+  </div>
+</mat-card>
+
+<mat-card>
+  <h3>Instructions:</h3>
+  <p>Enter two timestamps (in twenty-four hour notation) into the input fields above using the following time forwat "HH:MM". Press the 'Answer Me' button and you will be shown exactly how many times the bell in the clocktower will toll between the two given times.</p>
+</mat-card>
